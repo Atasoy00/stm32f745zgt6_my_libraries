@@ -1,0 +1,14 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!*.c
+!*.h
+
+*main.c
+*main.h
+
+# ...even if they are in subdirectories
+#!*/
+
