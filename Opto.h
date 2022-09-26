@@ -4,6 +4,7 @@
 #include "stm32f7xx_hal.h"
 
 void opto_Init(void);
+void opto_Triggered(void);
 
 #endif
 

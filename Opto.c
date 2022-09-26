@@ -10,39 +10,14 @@ void opto_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  HAL_NVIC_SetPriority(EXTI1_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 }
 
-/*
-int i = 0;
-
-int main(void)
+__weak void opto_Triggered(void)
 {
-  
-  MPU_Config();
-  CPU_CACHE_Enable();
-  HAL_Init();
-  SystemClock_Config();
-  SystemCoreClockUpdate();
-
-	display_Init();
-	opto_Init();
-
-  while (1)
-  {
-		display_Write(i);
-		HAL_Delay(10);
-  }	
+// butona basildiginda yapilmasi istenilen islemler
 }
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
-{
-	if(GPIO_Pin == GPIO_PIN_7 || GPIO_Pin == GPIO_PIN_8)
-	{
-		i++;
-	}
-}
-*/
 
 

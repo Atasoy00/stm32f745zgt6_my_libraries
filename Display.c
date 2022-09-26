@@ -98,6 +98,7 @@ void display_Write(unsigned char sayi)
 		DPY_DP1_ON;
 		DPY_DP2_ON;
 	}
+	
 }
 
 void decToBin(char decimalNumber, char BinaryForm[4])
