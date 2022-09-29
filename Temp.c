@@ -37,6 +37,10 @@ double temp_Read(ADC_HandleTypeDef* hadc)
   double temp = (actual_voltage_mV - 400)/19.5;
   //double temp = (actual_voltage_mV - 500)/10;
 
+	int a = temp*100;
+  temp = a;
+  temp = temp/100;
+	
   return temp;
 }
 

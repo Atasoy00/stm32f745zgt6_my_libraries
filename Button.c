@@ -15,8 +15,18 @@ void button_Init(void)
   HAL_NVIC_EnableIRQ(EXTI1_IRQn);
 }
 
-__weak void button_Pressed(void)
+
+/*
+void EXTI1_IRQHandler(void)
 {
-// butona basildiginda yapilmasi istenilen islemler
+	HAL_GPIO_EXTI_IRQHandler(BUTTON_Pin);
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == GPIO_PIN_1)
+	{
+		// do something when button pressed
+	}
+}
+*/

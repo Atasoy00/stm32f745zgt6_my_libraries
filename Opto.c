@@ -14,10 +14,21 @@ void opto_Init(void)
   HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
 }
 
-__weak void opto_Triggered(void)
+
+/*
+void EXTI9_5_IRQHandler(void)
 {
-// butona basildiginda yapilmasi istenilen islemler
+  HAL_GPIO_EXTI_IRQHandler(OPTO2_Pin);
+  HAL_GPIO_EXTI_IRQHandler(OPTO1_Pin);
 }
 
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+	if(GPIO_Pin == OPTO1_Pin || GPIO_Pin == OPTO2_Pin)
+	{
+		//do something when optocouplers triggered
+	}	
+}
 
+*/
 

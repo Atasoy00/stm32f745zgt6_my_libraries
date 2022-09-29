@@ -1,26 +1,27 @@
 /*******************************************************************************
 *Copyright(C)			: INTETRA
-*File Name				: LED.c
+*File Name				: rs232.h
 *Creator					: Ferhat ATASOY
-*Update  					: None
+*Update  					: Ferhat ATASOY
 *Latest update	 	: None
-*Description			: None
-*Current Version	: rv.1.0  
+*Description			:
+*Current Version	: rv.1.0
 *******************************************************************************
-Version History:   
+Version History:
 -Created
-	
+
 (uVision5  v5.37.0.0 , STM32F745ZGTx)
 *******************************************************************************/
+#ifndef __RS232_H
+#define __RS232_H
 /////////////////////////////////////////////////////////////////////////////////////////
 /***************************************INCLUDE******************************************
 */
-#include "LED.h"
-#include "stm32f7xx.h"                  // Device header
-#include "stm32f7xx_hal.h"              // Keil::Device:STM32Cube HAL:Common
+#include "stm32f7xx_hal.h"
 /////////////////////////////////////////////////////////////////////////////////////////
 /**************************************DEFINITIONS***************************************
 */
+#define RS232_BAUD_RATE 115200
 /////////////////////////////////////////////////////////////////////////////////////////
 /***************************************VARIABLES****************************************
 */
@@ -30,6 +31,9 @@ Version History:
 /////////////////////////////////////////////////////////////////////////////////////////
 /***************************************FUNCTIONS****************************************
 */
+void rs232_Init(UART_HandleTypeDef* huart);
+void rs232_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+void rs232_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
 /////////////////////////////////////////////////////////////////////////////////////////
 /***************************************THREADS******************************************
 */
@@ -37,23 +41,5 @@ Version History:
 /****************************************OTHERS******************************************
 */
 /////////////////////////////////////////////////////////////////////////////////////////
-
-/*******************************************************************************
-* Function Name  			: LED_Init
-* Description    			: None
-* Input         			: None
-* Output        			: None
-* Return        			: None
-*******************************************************************************/
-
-void LED_Init()
-{
-    GPIO_InitTypeDef GPIO_InitStruct;
-    __HAL_RCC_GPIOF_CLK_ENABLE();
-    GPIO_InitStruct.Pin = LED1_Pin | LED2_Pin | LED3_Pin | LED4_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = GPIO_NOPULL;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-    HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
-}
+#endif
 

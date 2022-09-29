@@ -7,6 +7,5 @@
 #define BUTTON_Pin GPIO_PIN_1
 
 void button_Init(void);
-__weak void button_Pressed(void);
 
 #endif
