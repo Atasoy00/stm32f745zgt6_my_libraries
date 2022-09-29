@@ -7,8 +7,8 @@ void MemManage_Handler(void);
 void BusFault_Handler(void);
 void UsageFault_Handler(void);
 void DebugMon_Handler(void);
-//void USART3_IRQHandler(void);
-void UART7_IRQHandler(void);
+void USART3_IRQHandler(void);
+//void UART7_IRQHandler(void);
 
 #endif 
 
