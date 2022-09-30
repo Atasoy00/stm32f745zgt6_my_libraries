@@ -1,7 +1,7 @@
 #include "main.h"
 #include "stm32f7xx_it.h"
 
-extern UART_HandleTypeDef huart3;
+//extern UART_HandleTypeDef huart3;
 //extern UART_HandleTypeDef huart7;
 
 
@@ -49,11 +49,11 @@ void UART7_IRQHandler(void)
   HAL_UART_IRQHandler(&huart7);
 }
 */
-///*
+/*
 void USART3_IRQHandler(void)
 {
   HAL_UART_IRQHandler(&huart3);
 }
-//*/
+*/
 
 

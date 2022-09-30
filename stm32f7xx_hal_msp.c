@@ -6,6 +6,11 @@ void HAL_MspInit(void)
   __HAL_RCC_SYSCFG_CLK_ENABLE();
 }
 
+// ********************************************************************** //
+// ********************************************************************** //
+// ********************************************************************** //
+// ******************************* UART ********************************* //
+
 void HAL_UART_MspInit(UART_HandleTypeDef* huart)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -71,6 +76,37 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
     //PD9     ------> USART3_RX
     HAL_GPIO_DeInit(GPIOD, GPIO_PIN_8|GPIO_PIN_9);
     HAL_NVIC_DisableIRQ(USART3_IRQn);
+  }
+
+}
+
+// ********************************************************************** //
+// ********************************************************************** //
+// ********************************************************************** //
+// ****************************** ADC *********************************** //
+
+void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+  if(hadc->Instance==ADC2)
+  {
+    __HAL_RCC_ADC2_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    //PA0/WKUP     ------> ADC2_IN0
+    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  }
+}
+
+void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
+{
+  if(hadc->Instance==ADC2)
+  {
+    __HAL_RCC_ADC2_CLK_DISABLE();
+    //PA0/WKUP     ------> ADC2_IN0
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0);
   }
 
 }

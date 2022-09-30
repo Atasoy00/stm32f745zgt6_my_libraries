@@ -8,6 +8,3 @@ double temp_Read(ADC_HandleTypeDef* hadc);
 
 #endif
 
-
-
-
